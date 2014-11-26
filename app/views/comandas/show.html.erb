@@ -7,7 +7,7 @@
 
 <p>
   <strong>Mesa:</strong>
-  <%= @comanda.mesa %>
+  <%= @comanda.mesa.numero %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>Funcionario:</strong>
-  <%= @comanda.funcionario %>
+  <%= @comanda.funcionario.nome %>
 </p>
 
 <p>
@@ -25,5 +25,5 @@
   <%= @comanda.aberto %>
 </p>
 
-<%= link_to 'Edit', edit_comanda_path(@comanda) %> |
-<%= link_to 'Back', comandas_path %>
+<%= link_to 'Editar', edit_comanda_path(@comanda) %> |
+<%= link_to 'Voltar', comandas_path %>

@@ -28,7 +28,7 @@ class MesasController < ApplicationController
 
     respond_to do |format|
       if @mesa.save
-        format.html { redirect_to @mesa, notice: 'Mesa was successfully created.' }
+        format.html { redirect_to @mesa, notice: 'Mesa criada com sucesso.' }
         format.json { render :show, status: :created, location: @mesa }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MesasController < ApplicationController
   def update
     respond_to do |format|
       if @mesa.update(mesa_params)
-        format.html { redirect_to @mesa, notice: 'Mesa was successfully updated.' }
+        format.html { redirect_to @mesa, notice: 'Mesa atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @mesa }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class MesasController < ApplicationController
   def destroy
     @mesa.destroy
     respond_to do |format|
-      format.html { redirect_to mesas_url, notice: 'Mesa was successfully destroyed.' }
+      format.html { redirect_to mesas_url, notice: 'Mesa excluída com sucesso.' }
       format.json { head :no_content }
     end
   end

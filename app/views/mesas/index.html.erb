@@ -1,4 +1,4 @@
-<h1>Listing mesas</h1>
+<h1>Lista de mesas</h1>
 
 <table>
   <thead>
@@ -14,9 +14,9 @@
       <tr>
         <td><%= mesa.numero %></td>
         <td><%= mesa.capacidade %></td>
-        <td><%= link_to 'Show', mesa %></td>
-        <td><%= link_to 'Edit', edit_mesa_path(mesa) %></td>
-        <td><%= link_to 'Destroy', mesa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Visualizar', mesa %></td>
+        <td><%= link_to 'Editar', edit_mesa_path(mesa) %></td>
+        <td><%= link_to 'Excluir', mesa, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Mesa', new_mesa_path %>
+<%= link_to 'Nova Mesa', new_mesa_path %>

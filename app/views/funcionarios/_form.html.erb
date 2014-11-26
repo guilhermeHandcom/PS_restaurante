@@ -25,13 +25,17 @@
   </div>
   <div class="field">
     <%= f.label :data_nascimento %><br>
-    <%= f.datetime_select :data_nascimento %>
+    <%= f.date_select :data_nascimento %>
   </div>
   <div class="field">
     <%= f.label :cargo %><br>
     <%= f.text_field :cargo %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <% if controller.action_name == "new" %>
+      <%= f.submit "Criar funcionário" %>
+    <% else %>
+      <%= f.submit "Atualizar funcionário" %>
+    <% end %>
   </div>
 <% end %>

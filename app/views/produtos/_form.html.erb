@@ -21,9 +21,13 @@
   </div>
   <div class="field">
     <%= f.label :categoria_id %><br>
-    <%= f.text_field :categoria_id %>
+    <%= f.select(:categoria_id, Categoria.all.collect {|c| [ c.nome, c.id ] }, { :include_blank => false }) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <% if controller.action_name == "new" %>
+      <%= f.submit "Criar produto" %>
+    <% else %>
+      <%= f.submit "Atualizar produto" %>
+    <% end %>
   </div>
 <% end %>

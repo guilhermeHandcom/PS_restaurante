@@ -28,7 +28,7 @@ class ComandasController < ApplicationController
 
     respond_to do |format|
       if @comanda.save
-        format.html { redirect_to @comanda, notice: 'Comanda was successfully created.' }
+        format.html { redirect_to @comanda, notice: 'Comanda criada com sucesso.' }
         format.json { render :show, status: :created, location: @comanda }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ComandasController < ApplicationController
   def update
     respond_to do |format|
       if @comanda.update(comanda_params)
-        format.html { redirect_to @comanda, notice: 'Comanda was successfully updated.' }
+        format.html { redirect_to @comanda, notice: 'Comanda atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @comanda }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ComandasController < ApplicationController
   def destroy
     @comanda.destroy
     respond_to do |format|
-      format.html { redirect_to comandas_url, notice: 'Comanda was successfully destroyed.' }
+      format.html { redirect_to comandas_url, notice: 'Comanda excluída com sucesso.' }
       format.json { head :no_content }
     end
   end

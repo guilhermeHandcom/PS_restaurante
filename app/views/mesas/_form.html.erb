@@ -20,6 +20,10 @@
     <%= f.number_field :capacidade %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <% if controller.action_name == "new" %>
+      <%= f.submit "Criar mesa" %>
+    <% else %>
+      <%= f.submit "Atualizar mesa" %>
+    <% end %>
   </div>
 <% end %>

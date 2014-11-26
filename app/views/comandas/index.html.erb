@@ -1,4 +1,4 @@
-<h1>Listing comandas</h1>
+<h1>Lista de comandas</h1>
 
 <table>
   <thead>
@@ -16,13 +16,13 @@
     <% @comandas.each do |comanda| %>
       <tr>
         <td><%= comanda.numero %></td>
-        <td><%= comanda.mesa %></td>
+        <td><%= comanda.mesa.numero %></td>
         <td><%= comanda.valor_total %></td>
-        <td><%= comanda.funcionario %></td>
+        <td><%= comanda.funcionario.nome %></td>
         <td><%= comanda.aberto %></td>
-        <td><%= link_to 'Show', comanda %></td>
-        <td><%= link_to 'Edit', edit_comanda_path(comanda) %></td>
-        <td><%= link_to 'Destroy', comanda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Visualizar', comanda %></td>
+        <td><%= link_to 'Editar', edit_comanda_path(comanda) %></td>
+        <td><%= link_to 'Excluir', comanda, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Comanda', new_comanda_path %>
+<%= link_to 'Nova Comanda', new_comanda_path %>

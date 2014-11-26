@@ -16,8 +16,8 @@
     <%= f.number_field :numero %>
   </div>
   <div class="field">
-    <%= f.label :mesa_id %><br>
-    <%= f.text_field :mesa_id %>
+    <%= f.label :mesa_id %> (número)<br>
+    <%= f.select(:mesa_id, Mesa.all.collect {|m| [ m.numero, m.id ] }, { :include_blank => false }) %>
   </div>
   <div class="field">
     <%= f.label :valor_total %><br>
@@ -25,13 +25,17 @@
   </div>
   <div class="field">
     <%= f.label :funcionario_id %><br>
-    <%= f.text_field :funcionario_id %>
+    <%= f.select(:funcionario_id, Funcionario.all.collect {|f| [ f.nome, f.id ] }, { :include_blank => false }) %>
   </div>
   <div class="field">
     <%= f.label :aberto %><br>
     <%= f.check_box :aberto %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <% if controller.action_name == "new" %>
+      <%= f.submit "Criar comanda" %>
+    <% else %>
+      <%= f.submit "Atualizar comanda" %>
+    <% end %>
   </div>
 <% end %>

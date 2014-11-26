@@ -16,6 +16,10 @@
     <%= f.text_field :nome %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <% if controller.action_name == "new" %>
+      <%= f.submit "Criar categoria" %>
+    <% else %>
+      <%= f.submit "Atualizar categoria" %>
+    <% end %>
   </div>
 <% end %>
