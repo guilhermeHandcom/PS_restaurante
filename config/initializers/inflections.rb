@@ -17,4 +17,6 @@
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'categoria', 'categorias'
   inflect.irregular 'funcionario', 'funcionarios'
+  inflect.irregular 'comanda', 'comandas'
+  inflect.irregular 'comandaproduto', 'comanda_produtos'
 end

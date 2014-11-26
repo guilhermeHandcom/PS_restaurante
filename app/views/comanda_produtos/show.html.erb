@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comanda:</strong>
+  <%= @comanda_produto.comanda %>
+</p>
+
+<p>
+  <strong>Produto:</strong>
+  <%= @comanda_produto.produto %>
+</p>
+
+<p>
+  <strong>Quantidade:</strong>
+  <%= @comanda_produto.quantidade %>
+</p>
+
+<%= link_to 'Edit', edit_comanda_produto_path(@comanda_produto) %> |
+<%= link_to 'Back', comanda_produtos_path %>

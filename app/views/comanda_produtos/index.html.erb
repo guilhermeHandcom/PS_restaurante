@@ -1,0 +1,29 @@
+<h1>Listing comanda_produtos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Comanda</th>
+      <th>Produto</th>
+      <th>Quantidade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comanda_produtos.each do |comanda_produto| %>
+      <tr>
+        <td><%= comanda_produto.comanda %></td>
+        <td><%= comanda_produto.produto %></td>
+        <td><%= comanda_produto.quantidade %></td>
+        <td><%= link_to 'Show', comanda_produto %></td>
+        <td><%= link_to 'Edit', edit_comanda_produto_path(comanda_produto) %></td>
+        <td><%= link_to 'Destroy', comanda_produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comanda produto', new_comanda_produto_path %>

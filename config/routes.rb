@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :comanda_produtos
+
+  resources :produtos
+
+  resources :comandas
+
+  resources :mesas
+
   resources :funcionarios
 
   resources :categorias
