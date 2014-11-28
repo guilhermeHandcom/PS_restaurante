@@ -4,7 +4,11 @@ class ComandaProdutosController < ApplicationController
   # GET /comanda_produtos
   # GET /comanda_produtos.json
   def index
-    @comanda_produtos = ComandaProduto.all
+    if params[:comanda_id]
+      @comanda_produtos = ComandaProduto.where("comanda_id = ?", params[:comanda_id])
+    else
+      @comanda_produtos = ComandaProduto.all
+    end
   end
 
   # GET /comanda_produtos/1
@@ -28,7 +32,7 @@ class ComandaProdutosController < ApplicationController
 
     respond_to do |format|
       if @comanda_produto.save
-        format.html { redirect_to @comanda_produto, notice: 'Comanda produto was successfully created.' }
+        format.html { redirect_to @comanda_produto, notice: 'Item adicionado com sucesso.' }
         format.json { render :show, status: :created, location: @comanda_produto }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class ComandaProdutosController < ApplicationController
   def update
     respond_to do |format|
       if @comanda_produto.update(comanda_produto_params)
-        format.html { redirect_to @comanda_produto, notice: 'Comanda produto was successfully updated.' }
+        format.html { redirect_to @comanda_produto, notice: 'Item atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @comanda_produto }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class ComandaProdutosController < ApplicationController
   def destroy
     @comanda_produto.destroy
     respond_to do |format|
-      format.html { redirect_to comanda_produtos_url, notice: 'Comanda produto was successfully destroyed.' }
+      format.html { redirect_to comanda_produtos_url, notice: 'Item excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

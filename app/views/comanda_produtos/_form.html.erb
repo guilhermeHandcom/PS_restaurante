@@ -13,17 +13,26 @@
 
   <div class="field">
     <%= f.label :comanda_id %><br>
-    <%= f.text_field :comanda_id %>
+    <% if params[:comanda_id] %>
+      <%= f.text_field :comanda_id, :value => params[:comanda_id] %>
+    <% else %>
+      <%= f.text_field :comanda_id %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :produto_id %><br>
-    <%= f.text_field :produto_id %>
+    <%= f.select(:produto_id, Produto.all.collect {|p| [ p.nome, p.id ] }, { :include_blank => false }) %>
   </div>
   <div class="field">
     <%= f.label :quantidade %><br>
     <%= f.number_field :quantidade %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <% if controller.action_name == "new" %>
+      <%= f.submit "Adicionar itens" %>
+    <% else %>
+      <%= f.submit "Atualizar itens" %>
+    <% end %>
   </div>
 <% end %>
+

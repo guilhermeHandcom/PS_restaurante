@@ -23,6 +23,9 @@
         <td><%= link_to 'Visualizar', comanda %></td>
         <td><%= link_to 'Editar', edit_comanda_path(comanda) %></td>
         <td><%= link_to 'Excluir', comanda, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <% if comanda.aberto %>
+          <td><%= link_to 'Adicionar Itens', '/comanda_produtos/new?comanda_id=' + comanda.id.to_s %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

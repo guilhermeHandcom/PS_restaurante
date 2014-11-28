@@ -1,4 +1,4 @@
-<h1>Listing comanda_produtos</h1>
+<h1>Listar itens</h1>
 
 <table>
   <thead>
@@ -13,17 +13,21 @@
   <tbody>
     <% @comanda_produtos.each do |comanda_produto| %>
       <tr>
-        <td><%= comanda_produto.comanda %></td>
-        <td><%= comanda_produto.produto %></td>
+        <td><%= comanda_produto.comanda.numero %></td>
+        <td><%= comanda_produto.produto.nome %></td>
         <td><%= comanda_produto.quantidade %></td>
-        <td><%= link_to 'Show', comanda_produto %></td>
-        <td><%= link_to 'Edit', edit_comanda_produto_path(comanda_produto) %></td>
-        <td><%= link_to 'Destroy', comanda_produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Visualizar', comanda_produto %></td>
+        <td><%= link_to 'Editar', edit_comandaproduto_path(comanda_produto) %></td>
+        <td><%= link_to 'Excluir', comanda_produto, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Comanda produto', new_comanda_produto_path %>
+<% if params[:comanda_id] %>
+<%= link_to 'Novo item', '/comanda_produtos/new?comanda_id=' + params[:comanda_id].to_s %>  
+<% else %>
+<%= link_to 'Novo item', new_comandaproduto_path %>
+<% end %>
+<%= link_to 'Listar comandas', comandas_path %>
