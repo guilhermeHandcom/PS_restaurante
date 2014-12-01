@@ -1,0 +1,30 @@
+<ul>
+	<%= form_tag('/faturamento', :method => 'get',  :id => "comandas_search")  do %> 
+	    <%= text_field_tag :data, params[:data], :placeholder => "yyyy-mm-dd", :class => 'data'%>  
+	    <%= submit_tag "Buscar", :name => nil, :class => 'inputBusca' %>  
+	<% end %>
+	<br/>
+	<br/>
+	<% if @comandas.length > 0 %>
+		<table>
+		  <thead>
+		    <tr>
+		      <th>Comanda</th>
+		      <th>Faturamento</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+			<% @comandas.each do |comanda| %>
+		      <tr>
+		        <td><%= comanda.numero %></td>
+		        <td>
+		        	<%= retornaValorComanda(comanda) %>
+		        </td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	<% else %>
+		Nenhum faturamento para esta data.
+	<% end %>
+</ul>
