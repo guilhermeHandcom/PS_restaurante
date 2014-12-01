@@ -20,10 +20,6 @@
     <%= f.select(:mesa_id, Mesa.all.collect {|m| [ m.numero, m.id ] }, { :include_blank => false }) %>
   </div>
   <div class="field">
-    <%= f.label :valor_total %><br>
-    <%= f.text_field :valor_total %>
-  </div>
-  <div class="field">
     <%= f.label :funcionario_id %><br>
     <%= f.select(:funcionario_id, Funcionario.all.collect {|f| [ f.nome, f.id ] }, { :include_blank => false }) %>
   </div>

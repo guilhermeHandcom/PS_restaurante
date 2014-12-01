@@ -3,7 +3,6 @@ class CreateComandas < ActiveRecord::Migration
     create_table :comandas do |t|
       t.integer :numero
       t.references :mesa, index: true
-      t.float :valor_total
       t.references :funcionario, index: true
       t.boolean :aberto
 

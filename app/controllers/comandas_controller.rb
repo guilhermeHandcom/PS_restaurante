@@ -69,6 +69,6 @@ class ComandasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comanda_params
-      params.require(:comanda).permit(:numero, :mesa_id, :valor_total, :funcionario_id, :aberto)
+      params.require(:comanda).permit(:numero, :mesa_id, :funcionario_id, :aberto)
     end
 end
