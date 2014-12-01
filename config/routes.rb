@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'faturamento/index'
 
   resources :comanda_produtos
 
@@ -14,6 +13,8 @@ Rails.application.routes.draw do
   resources :categorias
 
   resources :faturamento
+
+  post 'faturamento/index' => 'faturamento#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

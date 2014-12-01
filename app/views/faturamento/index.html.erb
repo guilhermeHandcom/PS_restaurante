@@ -1,5 +1,5 @@
 <ul>
-	<%= form_tag('/faturamento', :method => 'get',  :id => "comandas_search")  do %> 
+	<%= form_tag('/faturamento/index', :method => 'post',  :id => "comandas_search")  do %> 
 	    <%= text_field_tag :data, params[:data], :placeholder => "yyyy-mm-dd", :class => 'data'%>  
 	    <%= submit_tag "Buscar", :name => nil, :class => 'inputBusca' %>  
 	<% end %>
