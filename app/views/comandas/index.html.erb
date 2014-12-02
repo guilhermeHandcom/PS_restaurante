@@ -1,36 +1,37 @@
 <h1>Lista de comandas</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Numero</th>
-      <th>Mesa</th>
-      <th>Valor total</th>
-      <th>Funcionario</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @comandas.each do |comanda| %>
+<div class="">
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= comanda.numero %></td>
-        <td><%= comanda.mesa.numero %></td>
-        <td><%= retornaValorComanda(comanda) %></td>
-        <td><%= comanda.funcionario.nome %></td>
-        <td><%= comanda.aberto ? "Aberta" : "Fechada" %></td>
-        <td><%= link_to 'Visualizar', comanda %></td>
-        <td><%= link_to 'Editar', edit_comanda_path(comanda) %></td>
-        <td><%= link_to 'Excluir', comanda, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
-        <% if comanda.aberto %>
-          <td><%= link_to 'Adicionar Itens', '/comanda_produtos/new?comanda_id=' + comanda.id.to_s %></td>
-        <% end %>
+        <th>Numero</th>
+        <th>Mesa</th>
+        <th>Valor total</th>
+        <th>Funcionario</th>
+        <th>Status</th>
+        <th colspan="6"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @comandas.each do |comanda| %>
+        <tr>
+          <td><%= comanda.numero %></td>
+          <td><%= comanda.mesa.numero %></td>
+          <td><%= retornaValorComanda(comanda) %></td>
+          <td><%= comanda.funcionario.nome %></td>
+          <td><%= comanda.aberto ? "Aberta" : "Fechada" %></td>
+          <td><%= link_to 'Visualizar', comanda, :class => 'btn btn-default' %></td>
+          <td><%= link_to 'Editar', edit_comanda_path(comanda), :class => 'btn btn-default' %></td>
+          <% if comanda.aberto %>
+            <td><%= link_to 'Adicionar Itens', '/comanda_produtos/new?comanda_id=' + comanda.id.to_s, :class => 'btn btn-primary' %></td>
+          <% end %>
+          <td><td><%= link_to 'Listar Itens', '/comanda_produtos?comanda_id=' + comanda.id.to_s, :class => 'btn btn-info' %></td></td>
+          <td><%= link_to 'Excluir', comanda, method: :delete, data: { confirm: 'Você tem certeza?' }, :class => 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
 
-<%= link_to 'Nova Comanda', new_comanda_path %>
+<%= link_to 'Nova Comanda', new_comanda_path, :class => 'btn btn-success' %>

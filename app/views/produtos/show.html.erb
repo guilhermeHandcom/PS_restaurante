@@ -15,5 +15,5 @@
   <%= @produto.categoria.nome %>
 </p>
 
-<%= link_to 'Editar', edit_produto_path(@produto) %> |
-<%= link_to 'Voltar', produtos_path %>
+<%= link_to 'Editar', edit_produto_path(@produto), :class => 'btn btn-default' %> 
+<%= link_to 'Voltar', produtos_path, :class => 'btn btn-info' %>

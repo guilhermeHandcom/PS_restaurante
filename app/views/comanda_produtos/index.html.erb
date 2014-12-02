@@ -1,6 +1,6 @@
-<h1>Listar itens</h1>
+<h1>Lista de itens</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Comanda</th>
@@ -16,9 +16,9 @@
         <td><%= comanda_produto.comanda.numero %></td>
         <td><%= comanda_produto.produto.nome %></td>
         <td><%= comanda_produto.quantidade %></td>
-        <td><%= link_to 'Visualizar', comanda_produto %></td>
-        <td><%= link_to 'Editar', edit_comandaproduto_path(comanda_produto) %></td>
-        <td><%= link_to 'Excluir', comanda_produto, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to 'Visualizar', comanda_produto, :class => 'btn btn-default' %></td>
+        <td><%= link_to 'Editar', edit_comandaproduto_path(comanda_produto), :class => 'btn btn-default' %></td>
+        <td><%= link_to 'Excluir', comanda_produto, method: :delete, data: { confirm: 'Você tem certeza?' }, :class => 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,8 +26,8 @@
 
 <br>
 <% if params[:comanda_id] %>
-<%= link_to 'Novo item', '/comanda_produtos/new?comanda_id=' + params[:comanda_id].to_s %>  
+<%= link_to 'Novo item', '/comanda_produtos/new?comanda_id=' + params[:comanda_id].to_s, :class => 'btn btn-success' %>  
 <% else %>
-<%= link_to 'Novo item', new_comandaproduto_path %>
+<%= link_to 'Novo item', new_comandaproduto_path, :class => 'btn btn-success' %>
 <% end %>
-<%= link_to 'Listar comandas', comandas_path %>
+<%= link_to 'Listar comandas', comandas_path, :class => 'btn btn-primary' %>

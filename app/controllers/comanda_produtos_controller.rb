@@ -60,7 +60,7 @@ class ComandaProdutosController < ApplicationController
   def destroy
     @comanda_produto.destroy
     respond_to do |format|
-      format.html { redirect_to comanda_produtos_url, notice: 'Item excluído com sucesso.' }
+      format.html { redirect_to :back, notice: 'Item excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

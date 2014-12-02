@@ -1,6 +1,6 @@
 <h1>Lista de funcionários</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Nome</th>
@@ -20,9 +20,9 @@
         <td><%= funcionario.telefone %></td>
         <td><%= funcionario.data_nascimento.try(:strftime, "%d/%m/%Y") %></td>
         <td><%= funcionario.cargo %></td>
-        <td><%= link_to 'Visualizar', funcionario %></td>
-        <td><%= link_to 'Editar', edit_funcionario_path(funcionario) %></td>
-        <td><%= link_to 'Excluir', funcionario, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to 'Visualizar', funcionario, :class => 'btn btn-default' %></td>
+        <td><%= link_to 'Editar', edit_funcionario_path(funcionario), :class => 'btn btn-default' %></td>
+        <td><%= link_to 'Excluir', funcionario, method: :delete, data: { confirm: 'Você tem certeza?' }, :class => 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'Novo Funcionário', new_funcionario_path %>
+<%= link_to 'Novo Funcionário', new_funcionario_path, :class => 'btn btn-success' %>

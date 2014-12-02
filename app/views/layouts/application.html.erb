@@ -2,12 +2,22 @@
 <html>
 <head>
   <title>PSRestaurante</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'bootstrap' %>
+  <%= stylesheet_link_tag    'bootstrap-theme' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
+<body class="container">
+	<br>
+	<ul class="nav nav-pills">
+	  <li role="presentation" class=""><a href="/categorias">Categorias</a></li>
+	  <li role="presentation" class=""><a href="/comandas">Comandas</a></li>
+	  <li role="presentation" class=""><a href="/faturamento">Faturamento</a></li>
+	  <li role="presentation" class=""><a href="/funcionarios">Funcionários</a></li>
+	  <li role="presentation" class=""><a href="/mesas">Mesas</a></li>
+	  <li role="presentation" class=""><a href="/produtos">Produtos</a></li>
+	</ul>	
 <%= yield %>
 
 </body>

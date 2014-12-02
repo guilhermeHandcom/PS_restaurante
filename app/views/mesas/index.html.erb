@@ -1,6 +1,6 @@
 <h1>Lista de mesas</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Numero</th>
@@ -14,9 +14,9 @@
       <tr>
         <td><%= mesa.numero %></td>
         <td><%= mesa.capacidade %></td>
-        <td><%= link_to 'Visualizar', mesa %></td>
-        <td><%= link_to 'Editar', edit_mesa_path(mesa) %></td>
-        <td><%= link_to 'Excluir', mesa, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to 'Visualizar', mesa, :class => 'btn btn-default' %></td>
+        <td><%= link_to 'Editar', edit_mesa_path(mesa), :class => 'btn btn-default' %></td>
+        <td><%= link_to 'Excluir', mesa, method: :delete, data: { confirm: 'Você tem certeza?' }, :class => 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'Nova Mesa', new_mesa_path %>
+<%= link_to 'Nova Mesa', new_mesa_path, :class => 'btn btn-success' %>

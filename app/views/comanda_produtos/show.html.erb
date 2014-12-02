@@ -15,6 +15,6 @@
   <%= @comanda_produto.quantidade %>
 </p>
 
-<%= link_to 'Voltar', '/comanda_produtos?comanda_id=' + @comanda_produto.comanda.id.to_s %>
+<%= link_to 'Voltar', '/comanda_produtos?comanda_id=' + @comanda_produto.comanda.id.to_s, :class => 'btn btn-default' %>
 
-<%= link_to 'Listar comandas', comandas_path %>
+<%= link_to 'Listar comandas', comandas_path, :class => 'btn btn-info' %>

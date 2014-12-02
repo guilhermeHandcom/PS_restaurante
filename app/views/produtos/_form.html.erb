@@ -1,4 +1,4 @@
-<%= form_for(@produto) do |f| %>
+<%= form_for(@produto, :html => {role: "form", :class => 'form-horizontal'}) do |f| %>
   <% if @produto.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
@@ -11,23 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Nome</label>
+    <div class="col-sm-2">
+      <%= f.text_field :nome, :class => 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :valor %><br>
-    <%= f.text_field :valor %>
+
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Valor</label>
+    <div class="col-sm-2">
+      <%= f.text_field :valor, :class => 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :categoria_id %><br>
-    <%= f.select(:categoria_id, Categoria.all.collect {|c| [ c.nome, c.id ] }, { :include_blank => false }) %>
+
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Categoria</label>
+    <div class="col-sm-2">
+      <%= f.select(:categoria_id, Categoria.all.collect {|c| [ c.nome, c.id ] }, { :include_blank => false }, :class => 'form-control') %>
+    </div>
   </div>
+
   <div class="actions">
     <% if controller.action_name == "new" %>
-      <%= f.submit "Criar produto" %>
+      <%= f.submit "Criar produto", :class => 'btn btn-default' %>
     <% else %>
-      <%= f.submit "Atualizar produto" %>
+      <%= f.submit "Atualizar produto", :class => 'btn btn-default' %>
     <% end %>
   </div>
 <% end %>

@@ -1,6 +1,6 @@
 <h1>Lista de Categorias</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Nome</th>
@@ -12,9 +12,9 @@
     <% @categorias.each do |categoria| %>
       <tr>
         <td><%= categoria.nome %></td>
-        <td><%= link_to 'Visualizar', categoria %></td>
-        <td><%= link_to 'Editar', edit_categoria_path(categoria) %></td>
-        <td><%= link_to 'Excluir', categoria, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to 'Visualizar', categoria, :class => 'btn btn-default' %></td>
+        <td><%= link_to 'Editar', edit_categoria_path(categoria), :class => 'btn btn-default' %></td>
+        <td><%= link_to 'Excluir', categoria, method: :delete, data: { confirm: 'Você tem certeza?' }, :class => 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'Nova Categoria', new_categoria_path %>
+<%= link_to 'Nova Categoria', new_categoria_path, :class => 'btn btn-success' %>
