@@ -9,6 +9,6 @@ module ApplicationHelper
 			end
 
 		end
-		return @valorTotal
+		return 'R$ ' + @valorTotal.to_s
 	end
 end

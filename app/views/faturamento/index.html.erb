@@ -1,30 +1,39 @@
-<ul>
-	<%= form_tag('/faturamento/index', :method => 'post',  :id => "comandas_search")  do %> 
-	    <%= text_field_tag :data, params[:data], :placeholder => "yyyy-mm-dd", :class => 'data'%>  
-	    <%= submit_tag "Buscar", :name => nil, :class => 'inputBusca' %>  
+<h1>Faturamento</h1>
+<div class="form-group col-sm-20" style="float: left; margin: 10px 0px 30px;" >
+	<%= form_tag('/faturamento/index', :method => 'post',  :id => "comandas_search", :class => 'form-horizontal')  do %> 	
+    	<div class="col-sm-4">
+			<label class="control-label">Data início</label>
+			<%= text_field_tag :data_inicio, params[:data_inicio], :placeholder => "dd/mm/yyyy", :class => 'form-control' %> 
+		    <br />
+		    <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-default' %>  
+		</div> 
+    	<div class="col-sm-4">
+		    <label class="control-label">Data fim</label>
+		    <%= text_field_tag :data_fim, params[:data_fim], :placeholder => "dd/mm/yyyy", :class => 'form-control' %>  
+	    </div>
 	<% end %>
-	<br/>
-	<br/>
-	<% if @comandas.length > 0 %>
-		<table class="table">
-		  <thead>
-		    <tr>
-		      <th>Comanda</th>
-		      <th>Faturamento</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-			<% @comandas.each do |comanda| %>
-		      <tr>
-		        <td><%= comanda.numero %></td>
-		        <td>
-		        	<%= retornaValorComanda(comanda) %>
-		        </td>
-		      </tr>
-		    <% end %>
-		  </tbody>
-		</table>
-	<% else %>
-		Nenhum faturamento para esta data.
-	<% end %>
-</ul>
+</div>
+<% if @comandas.length > 0 %>
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th>Comanda</th>
+	      <th>Faturamento</th>
+	      <th>Status</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+		<% @comandas.each do |comanda| %>
+	      <tr>
+	        <td><%= comanda.numero %></td>
+	        <td>
+	        	<%= retornaValorComanda(comanda) %>
+	        </td>
+      		<td><%= comanda.aberto ? "Aberta" : "Fechada" %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+<% else %>
+	<h1>Nenhum faturamento para esta data.</h1>
+<% end %>
